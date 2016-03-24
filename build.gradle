@@ -26,10 +26,10 @@ task wrapper(type: Wrapper) {
     gradleVersion = '2.6'
 }
 
-task javadocJar(type: Jar, dependsOn: javadoc) {
-    classifier = 'javadoc'
-    from javadoc.destinationDir
-}
+//task javadocJar(type: Jar, dependsOn: javadoc) {
+//    classifier = 'javadoc'
+//    from javadoc.destinationDir
+//}
 
 task sourcesJar(type: Jar, dependsOn: classes) {
     classifier = 'sources'
@@ -94,17 +94,17 @@ task integrationTest(type: Test) {
 // signing.password = <public key password>
 // signing.secretKeyRingFile = <full path to your keyring file (i.e secring.gpg)>
 //
-// ossrhUsername = sonatype.org JIRA user
-// ossrhPassword = sonatype.org JIRA password
+def ossrhUsername = "sonatype.org JIRA user"
+def ossrhPassword = "sonatype.org JIRA password"
 //
 
-artifacts {
-    archives javadocJar, sourcesJar
-}
+//artifacts {
+//    archives javadocJar, sourcesJar
+//}
 
-signing {
-    sign configurations.archives
-}
+//signing {
+//    sign configurations.archives
+//}
 
 uploadArchives {
     repositories {

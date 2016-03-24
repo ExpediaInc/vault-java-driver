@@ -2,6 +2,7 @@ package com.bettercloud.vault;
 
 import com.bettercloud.vault.api.Auth;
 import com.bettercloud.vault.api.Logical;
+import com.bettercloud.vault.api.Sys;
 
 /**
  * <p>The Vault driver class, the primary interface through which dependent applications will access Vault.</p>
@@ -78,6 +79,15 @@ public class Vault {
      */
     public Auth auth() {
         return new Auth(vaultConfig);
+    }
+
+    /**
+     * Returns the implementing class for operations on Vault's <code>/v1/sys/*</code> endpoints
+     *
+     * @return The implementing class for Vault's sys operations.
+     */
+    public Sys sys() {
+        return new Sys(vaultConfig);
     }
 
 }

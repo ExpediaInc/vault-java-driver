@@ -3,6 +3,7 @@ package com.bettercloud.vault.api;
 import com.bettercloud.vault.Vault;
 import com.bettercloud.vault.VaultConfig;
 import com.bettercloud.vault.VaultException;
+import com.bettercloud.vault.response.VaultResponse;
 import org.junit.Before;
 import org.junit.Test;
 
@@ -49,6 +50,14 @@ public class LogicalTests {
 
         final String valueRead = vault.logical().read(path).getData().get("value");
         assertEquals(value, valueRead);
+    }
+
+    @Test
+    public void testMySql() throws VaultException {
+        VaultResponse response = vault.logical().read("mysql/creds/readonly");
+        VaultResponse renewResponse = vault.sys().renewLease(response.getLeaseId());
+
+        assertEquals(response.getLeaseId(), renewResponse.getLeaseId());
     }
 
     /**
