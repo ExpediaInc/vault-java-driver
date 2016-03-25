@@ -26,6 +26,6 @@ public class TimeUtil {
 
         }
 
-        return unit;
+        return String.format("%d%s", time, unit);
     }
 }
