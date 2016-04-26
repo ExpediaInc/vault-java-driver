@@ -3,6 +3,7 @@ package com.bettercloud.vault.api;
 import com.bettercloud.vault.Vault;
 import com.bettercloud.vault.VaultConfig;
 import com.bettercloud.vault.VaultException;
+import org.junit.Ignore;
 import org.junit.Test;
 
 import static org.junit.Assert.assertNotNull;
@@ -17,6 +18,7 @@ import static org.junit.Assert.assertNotSame;
  * <code>gradle integrationTest -DVAULT_ADDR=http://127.0.0.1:8200
  *
  */
+@Ignore
 public class AuthTests {
 
     /**
@@ -25,6 +27,7 @@ public class AuthTests {
      * @throws VaultException
      */
     @Test
+    @Ignore
     public void testLoginByAuthId() throws VaultException {
         final String address = System.getProperty("VAULT_ADDR");
         final String appId = System.getProperty("VAULT_APP_ID");
@@ -49,6 +52,7 @@ public class AuthTests {
      * @throws VaultException
      */
     @Test
+    @Ignore
     public void testLoginByUsernamePassword() throws VaultException {
         final String address = System.getProperty("VAULT_ADDR");
         final String userId = System.getProperty("VAULT_USER_ID");

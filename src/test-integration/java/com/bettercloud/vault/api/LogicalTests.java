@@ -5,6 +5,7 @@ import com.bettercloud.vault.VaultConfig;
 import com.bettercloud.vault.VaultException;
 import com.bettercloud.vault.response.VaultResponse;
 import org.junit.Before;
+import org.junit.Ignore;
 import org.junit.Test;
 
 import java.util.HashMap;
@@ -42,6 +43,7 @@ public class LogicalTests {
      * @throws VaultException
      */
     @Test
+    @Ignore
     public void testWriteAndRead() throws VaultException {
         final String path = "secret/hello";
         final String value = "world";
@@ -53,6 +55,7 @@ public class LogicalTests {
     }
 
     @Test
+    @Ignore
     public void testMySql() throws VaultException {
         VaultResponse response = vault.logical().read("mysql/creds/readonly");
         VaultResponse renewResponse = vault.sys().renewLease(response.getLeaseId());
@@ -66,6 +69,7 @@ public class LogicalTests {
      * @throws VaultException
      */
     @Test
+    @Ignore
     public void testWriteAndReadNull() throws VaultException {
         final String path = "secret/null";
         final String value = null;
